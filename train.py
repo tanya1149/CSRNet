@@ -102,7 +102,7 @@ def main():
             'state_dict': model.state_dict(),
             'best_prec1': best_prec1,
             'optimizer' : optimizer.state_dict(),
-        }, is_best,args.task)
+        }, is_best,args.task,args.pre)
 
 def train(train_list, model, criterion, optimizer, epoch):
     

@@ -13,6 +13,8 @@ def load_net(fname, net):
             v.copy_(param)
             
 def save_checkpoint(state, is_best,task_id, filename='checkpoint.pth.tar'):
-    torch.save(state, task_id+filename)
+    # torch.save(state, task_id+filename)
+    torch.save(state, filename)
     if is_best:
-        shutil.copyfile(task_id+filename, task_id+'model_best.pth.tar')            
+        # shutil.copyfile(task_id+filename, task_id+'model_best.pth.tar')            
+        shutil.copyfile(filename, 'model_best.pth.tar')            
