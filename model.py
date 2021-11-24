@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch
 from torchvision import models
 from utils import save_net,load_net
-from past.builtins import xrange
+# from past.builtins import xrange
 import collections
 
 class CSRNet(nn.Module):
@@ -18,7 +18,7 @@ class CSRNet(nn.Module):
             mod = models.vgg16(pretrained = True)
             self._initialize_weights()
             fsd=collections.OrderedDict()
-            for i in xrange(len(self.frontend.state_dict().items())):
+            for i in range(len(self.frontend.state_dict().items())):
                 temp_key=list(self.frontend.state_dict().items())[i][0]
                 fsd[temp_key]=list(mod.state_dict().items())[i][1]
             self.frontend.load_state_dict(fsd)
